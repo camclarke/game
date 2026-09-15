@@ -32,7 +32,7 @@ The latent conditions, not the trigger: a missing guardrail, a silent failure mo
 
 ## Resolution
 
-What actually fixed it, and how the fix was verified (in PIE, in a packaged build, or by a check).
+What actually fixed it, and how the fix was verified (in Play Mode, in a build, or by a check).
 
 ## Prevention / action items
 

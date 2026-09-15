@@ -5,26 +5,72 @@
 *.ps1 text eol=crlf
 *.sh  text eol=lf
 
+# C# and shaders
+*.cs      text diff=csharp
+*.shader  text
+*.hlsl    text
+*.cginc   text
+*.compute text
+
+# Unity JSON files. Unity writes them with LF, so keep LF on checkout too.
+*.asmdef         eol=lf
+*.asmref         eol=lf
+*.inputactions   eol=lf
+*.shadergraph    eol=lf
+*.shadersubgraph eol=lf
+
+# Unity YAML files: scenes, prefabs, materials, .meta and other assets.
+# - eol=lf: Unity writes LF; keeping LF on checkout avoids whole-file diffs.
+# - No explicit "text": a few .asset files are binary (baked lighting data),
+#   and text=auto leaves binary files byte-for-byte untouched.
+# - merge=unityyamlmerge: uses Unity's Smart Merge once it's configured
+#   locally; until then git falls back to its normal text merge.
+*.unity              merge=unityyamlmerge eol=lf
+*.prefab             merge=unityyamlmerge eol=lf
+*.asset              merge=unityyamlmerge eol=lf
+*.meta               merge=unityyamlmerge eol=lf
+*.mat                merge=unityyamlmerge eol=lf
+*.anim               merge=unityyamlmerge eol=lf
+*.controller         merge=unityyamlmerge eol=lf
+*.overrideController merge=unityyamlmerge eol=lf
+*.physicMaterial     merge=unityyamlmerge eol=lf
+*.physicsMaterial2D  merge=unityyamlmerge eol=lf
+*.playable           merge=unityyamlmerge eol=lf
+*.mask               merge=unityyamlmerge eol=lf
+*.mixer              merge=unityyamlmerge eol=lf
+*.preset             merge=unityyamlmerge eol=lf
+*.lighting           merge=unityyamlmerge eol=lf
+*.renderTexture      merge=unityyamlmerge eol=lf
+*.spriteatlas        merge=unityyamlmerge eol=lf
+*.spriteatlasv2      merge=unityyamlmerge eol=lf
+*.terrainlayer       merge=unityyamlmerge eol=lf
+*.signal             merge=unityyamlmerge eol=lf
+*.fontsettings       merge=unityyamlmerge eol=lf
+*.guiskin            merge=unityyamlmerge eol=lf
+*.shadervariants     merge=unityyamlmerge eol=lf
+*.scenetemplate      merge=unityyamlmerge eol=lf
+
 # Binary assets go through Git LFS. A binary committed without LFS stays in
 # history forever, so every clone downloads it. CI checks this on every PR
 # (tools/ci/check-lfs-pointers.sh).
 
-# Unreal assets and maps
-*.uasset filter=lfs diff=lfs merge=lfs -text
-*.umap   filter=lfs diff=lfs merge=lfs -text
-
-# 3D source files
+# 3D models
 *.fbx   filter=lfs diff=lfs merge=lfs -text
 *.obj   filter=lfs diff=lfs merge=lfs -text
-*.glb   filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
-*.abc   filter=lfs diff=lfs merge=lfs -text
-*.usdc  filter=lfs diff=lfs merge=lfs -text
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.dae   filter=lfs diff=lfs merge=lfs -text
+*.3ds   filter=lfs diff=lfs merge=lfs -text
+*.max   filter=lfs diff=lfs merge=lfs -text
+*.ma    filter=lfs diff=lfs merge=lfs -text
+*.mb    filter=lfs diff=lfs merge=lfs -text
 
 # Textures and images
 *.png  filter=lfs diff=lfs merge=lfs -text
 *.jpg  filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif  filter=lfs diff=lfs merge=lfs -text
+*.bmp  filter=lfs diff=lfs merge=lfs -text
 *.tga  filter=lfs diff=lfs merge=lfs -text
 *.psd  filter=lfs diff=lfs merge=lfs -text
 *.exr  filter=lfs diff=lfs merge=lfs -text
@@ -38,12 +84,15 @@
 *.mp3  filter=lfs diff=lfs merge=lfs -text
 *.ogg  filter=lfs diff=lfs merge=lfs -text
 *.flac filter=lfs diff=lfs merge=lfs -text
+*.aif  filter=lfs diff=lfs merge=lfs -text
+*.aiff filter=lfs diff=lfs merge=lfs -text
 *.mp4  filter=lfs diff=lfs merge=lfs -text
 *.mov  filter=lfs diff=lfs merge=lfs -text
-*.bk2  filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
 
-# Fonts and archives
+# Fonts, native plugins and archives
 *.ttf filter=lfs diff=lfs merge=lfs -text
 *.otf filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.7z  filter=lfs diff=lfs merge=lfs -text
