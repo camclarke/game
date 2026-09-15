@@ -1,0 +1,36 @@
+# Unreal Engine: generated on every build or editor launch. Large, machine-specific.
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Plugins/**/Binaries/
+Plugins/**/Intermediate/
+
+# IDE and generated project files (regenerate from the .uproject)
+.vs/
+.idea/
+.vscode/
+*.sln
+*.suo
+*.sdf
+*.opensdf
+*.opendb
+*.VC.db
+*.VC.opendb
+*.code-workspace
+
+# Compiler output outside the folders above
+*.pdb
+*.obj
+*.lib
+*.exp
+*.ilk
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local scratch: never committed
+_local/
+qa/_local/

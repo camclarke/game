@@ -1,0 +1,17 @@
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  lfs-pointers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Binary assets are stored in Git LFS
+        run: bash tools/ci/check-lfs-pointers.sh
