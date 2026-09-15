@@ -22,7 +22,7 @@
 
 ## 2. What this teaches
 
-<The Unreal concepts this plan covers, each with the official documentation page.>
+<The Unity concepts this plan covers, each with the official documentation page.>
 
 ## 3. Portions
 
@@ -31,12 +31,12 @@ Each portion runs only after the owner approves it. Update its status marker her
 ### Portion 1 — <name>   ⬜ not started
 
 - **Learn first:** <the concept, explained before any code is written>
-- **Changes:** <files and assets>
+- **Changes:** <scripts, scenes, prefabs, settings>
 - **Why:** …
 - **Won't touch:** …
 - **Cost:** <$0 · asset purchase · other>
 - **Outward-facing steps:** <push to the public repo · merge · release upload>
-- **"Done" means:** <compiles · test name passes · what to do in PIE and what you should see>
+- **"Done" means:** <compiles · test name passes · what to do in Play Mode and what you should see>
 - **Rollback:** …
 - **Owner decisions needed:** …
 

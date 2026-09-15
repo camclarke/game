@@ -1,16 +1,18 @@
 # Isometric game (working title)
 
-An isometric game built in Unreal Engine 5. Gameplay systems are written in C++; tuning, visuals and level scripting are done in Blueprints.
+An isometric game built in Unity with C#.
 
-**Status:** pre-production. Repository conventions are in place; the Unreal project has not been created yet.
+**Status:** pre-production. Repository conventions are in place; the Unity project has not been created yet.
 
 ## Requirements
 
-- **Unreal Engine 5.** The exact version is pinned in the `.uproject` file once the project exists.
-- **Visual Studio** with the "Game development with C++" workload, at the version Epic lists for that engine release.
-- **[Git LFS](https://git-lfs.com).** Binary assets (`.uasset`, `.umap`, textures, audio, meshes) are stored in LFS. Run `git lfs install` once before cloning.
+- **Unity 6.3 LTS**, installed through [Unity Hub](https://unity.com/download). The exact version is pinned in `ProjectSettings/ProjectVersion.txt` once the project exists.
+- **A C# editor.** This project uses Visual Studio 2026 with the "Game development with Unity" workload.
+- **[Git LFS](https://git-lfs.com).** Binary assets (textures, models, audio, video) are stored in LFS. Run `git lfs install` once before cloning.
 
 ## Repository layout
+
+The Unity project will sit at the repository root (`Assets/`, `Packages/`, `ProjectSettings/`).
 
 | Path | What it holds |
 |---|---|
@@ -23,4 +25,4 @@ An isometric game built in Unreal Engine 5. Gameplay systems are written in C++;
 
 CI runs [`tools/ci/check-lfs-pointers.sh`](tools/ci/check-lfs-pointers.sh) on every pull request. It fails if a binary asset was committed without Git LFS.
 
-Compiling and automation tests run locally for now, because GitHub's hosted runners don't have Unreal Engine installed.
+Unity tests run locally in the Test Runner for now; running them in CI needs a Unity license on the build machine.
